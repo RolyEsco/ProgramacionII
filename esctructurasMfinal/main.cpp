@@ -132,7 +132,7 @@ void eliminar()
         for(int i=x; i<N-1; i++)
             programacionII[i]=programacionII[i+1];
         cout<<endl<<"El proceso de eliminacion ha terminado satisfactoriamente";
-
+        N--;
     }
     else
     cout<<endl<<"El subindice ingresado no es valido";
@@ -142,13 +142,14 @@ int main()
 {   char opcion;
 
     do{
-        cout << "***  MENU PRINCIPAL ***" << endl << endl;
+        cout <<endl<< "***  MENU PRINCIPAL ***" << endl << endl;
         cout << " (1) Ingreso de Datos" << endl;
         cout << " (2) Ingresar N registros" << endl;
         cout << " (3) Mostrar datos" << endl;
         cout << " (4) Ordenar por nombre" << endl;
         cout << " (5) Modificar registro" << endl;
-        cout << " (6) Calcular edad promedio" << endl;
+        cout << " (6) Eliminar registro" << endl;
+        cout << " (7) Calcular edad promedio" << endl;
         cout << " (ESC) para salir" << endl;
         opcion=getch();
         switch(opcion)
@@ -157,7 +158,8 @@ int main()
             case '3': mostrar();  break;
             case '4': ordenar();  break;
             case '5': modificar();  break;
-            case '6': edad_promedio();  break;
+            case '6': eliminar();  break;
+            case '7': edad_promedio();  break;
         }
 
     }while(opcion!=27);
