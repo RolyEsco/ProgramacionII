@@ -121,6 +121,22 @@ void ordenar()
 
 }
 
+void eliminar()
+{   cout<<endl<<"** ELIMINAR REGISTRO **"<<endl;
+    int x;
+    printf("\n\nIngrese la posicion a modificar [1, %d] : ",N);
+    cin>>x;
+    x--;
+    if(x>=0 && x<N)
+    {   mostrar_registro(x);
+        for(int i=x; i<N-1; i++)
+            programacionII[i]=programacionII[i+1];
+        cout<<endl<<"El proceso de eliminacion ha terminado satisfactoriamente";
+
+    }
+    else
+    cout<<endl<<"El subindice ingresado no es valido";
+}
 
 int main()
 {   char opcion;
