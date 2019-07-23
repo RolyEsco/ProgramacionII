@@ -24,9 +24,7 @@ int main()
         fprintf(archivo,"\n");
     }
 
-
     fclose(archivo);
-
     cout << "Hello world!" << endl;
     return 0;
 }
