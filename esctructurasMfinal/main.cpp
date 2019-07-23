@@ -1,6 +1,7 @@
 #include <iostream>
 #include <conio.h>
 #include <stdio.h>
+#include <string.h>
 using namespace std;
 
 //declaracion de la escructura
@@ -45,6 +46,27 @@ void ingresar_N(){
 }
 
 
+void mostrar()
+{   cout<<endl<<endl<<"------ MOSTRAR INFORMACION  -------"<<endl;
+
+    printf("%-5s  ", "No.");
+    printf("%-30s", "NOMBRE");
+    printf("%-40s", "APELLIDOS");
+    printf("%-15s", "CELULAR");
+    printf("%5d",   "EDAD");
+    cout<<endl;
+    for(int k=0; k<N ; k++)
+    {
+        printf("%5d  ",k+1);
+        printf("%-30s",programacionII[k].nombre);
+        printf("%-40s",programacionII[k].apellidos);
+        printf("%-15s",programacionII[k].celular);
+        printf("%5d",programacionII[k].edad);
+        cout<<endl;
+    }
+    cout<<endl<<"--------------------------------"<<endl;
+}
+
 void mostrar2(){
     cout<<endl<<"** INFORMACION DE LA ESTRUCTURA **"<<endl;
     for(int k=0; k<N ; k++)
@@ -56,6 +78,20 @@ void mostrar2(){
     }
 }
 
+void ordenar()
+{   alumno auxiliar;
+    for(int i=0; i<N-1; i++)
+        for (int j=i; j<N; j++)
+            if(strcmp(programacionII[i].nombre, programacionII[j].nombre)>0)
+            {
+                auxiliar=programacionII[i];
+                programacionII[i]=programacionII[j];
+                programacionII[j]=auxiliar;
+            }
+        printf("\n\n EL PROCESO DE ORDENACION HA CONCLUIDO SATISFACTORIAMENTE" );
+
+}
+
 
 int main()
 {   char opcion;
@@ -65,14 +101,16 @@ int main()
         cout << " (1) Ingreso de Datos" << endl;
         cout << " (2) Ingresar N registros" << endl;
         cout << " (3) Mostrar datos" << endl;
-        cout << " (4) Calcular edad promedio" << endl;
+        cout << " (4) Ordenar por nombre" << endl;
+        cout << " (5) Calcular edad promedio" << endl;
         cout << " (ESC) para salir" << endl;
         opcion=getch();
         switch(opcion)
         {   case '1': ingresar(); break;
             case '2': ingresar_N();  break;
-            case '3': mostrar2();  break;
-            case '4': edad_promedio();  break;
+            case '3': mostrar();  break;
+            case '4': ordenar();  break;
+            case '5': edad_promedio();  break;
         }
 
     }while(opcion!=27);
