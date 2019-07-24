@@ -47,7 +47,7 @@ int main()
             fprintf(archivo,"%d",i+1);
 
             fclose(archivo);
-        }
-    cout << "Hello world!" << endl;*/
+        }*/
+    cout <<endl<< "Hello world!" << endl;
     return 0;
 }

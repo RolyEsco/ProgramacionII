@@ -16,16 +16,21 @@ void leer_strcutura()
     int i, j, n, x=1;
     char nombre[100];
 
-    archivo=fopen("libro1.csv", "r");
+
+    if(archivo=fopen("libro1.csv", "r"))
+    {   while (fscanf(archivo,"%s",nombre)!=EOF)
+            cout<<endl<<" nombre -> "<<nombre;
+        fclose(archivo);
+
+    }
+    else
+        cout<<"\nNo se ha encontrado el archivo solicitado\n";
     //fprintf(archivo,"HOLA MUNDO");
 
     //while (fscanf(archivo,"%s;%s;%s;%d",p.nombre,p.apellidos,p.celular,&p.edad)!=EOF)
       //  cout<<endl<<"edad -> "<<p.edad<<" nombre ->"<p.nombre;
 
-    while (fscanf(archivo,"%s",nombre)!=EOF)
-        cout<<endl<<" nombre -> "<<nombre;
 
-    fclose(archivo);
 
 }
 
