@@ -24,9 +24,14 @@ int main()
         cout<<endl<<nombre;
     }
 
-    archivo=fopen("d:/prueba/archivo10.txt","a");
-    fprintf(archivo, "\n%d", 2000);
-    fclose(archivo);
+    if(archivo=fopen("d:/prueba/archivo10.txt","r"))
+    {
+        fprintf(archivo, "\n%d", 2000);
+        fclose(archivo);
+    }
+    else
+        cout<<endl<<"El archivo solicitado no existe.";
+
 
 
     cout <<endl<< "Hello world!" << endl;
