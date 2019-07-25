@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1563970195 source:c:\users\roly\documents\programacionii\programacionii\archivo1\main.cpp
+1564056172 source:c:\users\roly\documents\programacionii\programacionii\archivo1\main.cpp
 	<iostream>
 	<stdio.h>
+	<string.h>
 

@@ -3,6 +3,22 @@
 #include <string.h>
 
 using namespace std;
+int vector[100], N=0;
+
+void ordenar()
+{
+    int aux;
+    for(int i=0; i<N-1; i++)
+        for(int j=i; j<N; j++)
+        {
+            if(vector[i]>vector[j])
+            {
+                aux=vector[i];
+                vector[i]=vector[j];
+                vector[j]=aux;
+            }
+        }
+}
 
 int main()
 {
@@ -13,13 +29,14 @@ int main()
     string cadena;
     int x;
 
-    destino=fopen("union.txt","a+");
+    destino=fopen("union.txt","w");
     origen=fopen("numero1.txt","r");
 
     while(fscanf(origen,"%d",&x)!=EOF)
     {
         printf("\n%4d",x);
-        fprintf(destino,"\n%4d",x);
+        //fprintf(destino,"\n%4d",x);
+        vector[N++]=x;
 
     }
 
@@ -29,10 +46,14 @@ int main()
     while(fscanf(origen,"%d",&x)!=EOF)
     {
         printf("\n%4d",x);
-        fprintf(destino,"\n%4d",x);
-
+        //fprintf(destino,"\n%4d",x);
+        vector[N++]=x;
     }
     fclose(origen);
+
+    ordenar();
+    for(int i=0; i<N ; i++)
+        fprintf(destino,"\n%4d",vector[i]);
 
     fclose(destino);
 
