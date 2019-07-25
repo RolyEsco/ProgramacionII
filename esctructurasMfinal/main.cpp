@@ -128,7 +128,7 @@ void importar()
     char *token, linea[100];
     FILE *archivo;
 
-   if(archivo=fopen("exportar.csv", "r"))
+   if(archivo=fopen("d:/prueba/exportar.csv", "r"))
     {
     //        cout<<endl<<" nombre -> "<<linea;
 
@@ -144,10 +144,22 @@ void importar()
             token=strtok(NULL,";");
             programacionII[N].edad=atoi(token);
             N++;
-            cout<<endl<<" nombre -> "<<linea;
+
         }
+        cout<<endl<<"**  LA IMPORTACION HA CONCLUIDO SATISFACTORIAMENTE **";
     }
     else cout<<endl<<"el archivo no existe";
+    fclose(archivo);
+}
+
+void exportar()
+{
+    FILE *archivo;
+    archivo=fopen("exportar.csv","w");
+    for(int i=0; i<N; i++)
+        fprintf(archivo,"%s;%s;%s;%d\n",programacionII[i].nombre,programacionII[i].apellidos,programacionII[i].celular,programacionII[i].edad);
+
+    cout<<endl<<"**  LA EXPORTACION HA CONCLUIDO SATISFACTORIAMENTE **";
     fclose(archivo);
 }
 
@@ -193,6 +205,7 @@ int main()
             case '6': eliminar();  break;
             case '7': edad_promedio();  break;
             case '8': importar();  break;
+            case '9': exportar();  break;
         }
 
     }while(opcion!=27);
