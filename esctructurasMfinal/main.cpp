@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 using namespace std;
 
 //declaracion de la escructura
@@ -53,7 +54,7 @@ void mostrar()
     printf("%-30s", "NOMBRE");
     printf("%-40s", "APELLIDOS");
     printf("%-15s", "CELULAR");
-    printf("%5d",   "EDAD");
+    printf("%5s",   "EDAD");
     cout<<endl;
     for(int k=0; k<N ; k++)
     {
@@ -121,6 +122,35 @@ void ordenar()
 
 }
 
+void importar()
+{
+    int i, j, n, x=1;
+    char *token, linea[100];
+    FILE *archivo;
+
+   if(archivo=fopen("exportar.csv", "r"))
+    {
+    //        cout<<endl<<" nombre -> "<<linea;
+
+        while (fgets(linea,100,archivo)!=NULL)
+        {
+
+            token=strtok(linea,";");
+            strcpy(programacionII[N].nombre,token);
+            token=strtok(NULL,";");
+            strcpy(programacionII[N].apellidos,token);
+            token=strtok(NULL,";");
+            strcpy(programacionII[N].celular,token);
+            token=strtok(NULL,";");
+            programacionII[N].edad=atoi(token);
+            N++;
+            cout<<endl<<" nombre -> "<<linea;
+        }
+    }
+    else cout<<endl<<"el archivo no existe";
+    fclose(archivo);
+}
+
 void eliminar()
 {   cout<<endl<<"** ELIMINAR REGISTRO **"<<endl;
     int x;
@@ -150,6 +180,8 @@ int main()
         cout << " (5) Modificar registro" << endl;
         cout << " (6) Eliminar registro" << endl;
         cout << " (7) Calcular edad promedio" << endl;
+        cout << " (8) Importar datos" << endl;
+        cout << " (9) Exportar datos" << endl;
         cout << " (ESC) para salir" << endl;
         opcion=getch();
         switch(opcion)
@@ -160,6 +192,7 @@ int main()
             case '5': modificar();  break;
             case '6': eliminar();  break;
             case '7': edad_promedio();  break;
+            case '8': importar();  break;
         }
 
     }while(opcion!=27);
