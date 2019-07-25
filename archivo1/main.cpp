@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
-
+#include <stdlib.h>
 using namespace std;
 int vector[100], N=0;
 
@@ -70,5 +70,22 @@ int main()
             fclose(archivo);
         }*/
     cout <<endl<< "Hello world!" << endl;
+
+    int i;
+    char nombre[20],aux[5];
+
+    for(i=0; i<10; i++)
+    {
+        strcpy(nombre,"archivo");
+        strcat(nombre,itoa(i+1,aux,10));
+        strcat(nombre,".txt");
+
+        archivo=fopen(nombre,"w");
+        fprintf(archivo, "\n%d", i+1);
+        fclose(archivo);
+
+        cout<<endl<<nombre;
+    }
+
     return 0;
 }
