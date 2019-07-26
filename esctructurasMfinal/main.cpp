@@ -128,7 +128,7 @@ void importar()
     char *token, linea[100];
     FILE *archivo;
 
-   if(archivo=fopen("d:/prueba/exportar.csv", "r"))
+   if(archivo=fopen("importar.csv", "r"))
     {
     //        cout<<endl<<" nombre -> "<<linea;
 
