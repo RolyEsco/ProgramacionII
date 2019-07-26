@@ -1,6 +1,0 @@
-este es el texto de prueba
-
-
-Recuerda que el nombre del archivo debe ser el mismo
-entre el archivo fisico y el archivo con el que se le
-llama.

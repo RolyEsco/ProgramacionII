@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -149,6 +150,32 @@ void calcular_edad(){
     cout<<"EDAD PROMEDIO: "<<suma/N;
 }
 
+void importar()
+{
+    char *token, linea[100];
+    FILE *archivo;
+
+   if(archivo=fopen("importar.csv", "r"))
+    {
+        while (fgets(linea,100,archivo)!=NULL)
+        {
+
+            token=strtok(linea,";");
+            strcpy(programacionII[N].nombre,token);
+            token=strtok(NULL,";");
+            strcpy(programacionII[N].apellidos,token);
+            token=strtok(NULL,";");
+            strcpy(programacionII[N].celular,token);
+            token=strtok(NULL,";");
+            programacionII[N].edad=atoi(token);
+            N++;
+
+        }
+    cout<<endl<<"**  LA IMPORTACION HA CONCLUIDO SATISFACTORIAMENTE **";
+    }
+    else cout<<endl<<"el archivo no existe";
+    fclose(archivo);
+}
 int main()
 {   char opcion;
     do{
@@ -160,6 +187,8 @@ int main()
         cout <<" (5) Eliminar registro" << endl;
         cout <<" (6) Ordenar por nombre" << endl;
         cout <<" (7) Calcular edad promedio" << endl;
+        cout <<" (8) Importar datos" << endl;
+        cout <<" (9) Exportar datos" << endl;
         cout <<" (ESC) Salir" << endl;
         cout <<endl<<"**********************" <<endl;
         cout <<"Ingrese su opcion: ";
@@ -174,6 +203,7 @@ int main()
             case '5': eliminar();  break;
             case '6': ordenar_nombre();  break;
             case '7': calcular_edad();  break;
+            case '8': importar();  break;
         }
 
     }while(opcion!=27);

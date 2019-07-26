@@ -6,7 +6,7 @@ int main()
 	FILE *archivo;
 	char caracter;
 
-	archivo = fopen("texto.txt","r");
+	archivo = fopen("texto.txt","w");
 
 	if (archivo == NULL)
         {
