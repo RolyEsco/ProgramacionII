@@ -176,6 +176,17 @@ void importar()
     else cout<<endl<<"el archivo no existe";
     fclose(archivo);
 }
+
+void exportar()
+{
+    FILE *archivo;
+    archivo=fopen("exportar.csv","w");
+    for(int k=0; k<N; k++)
+    {
+        fprintf(archivo,"%s;%s;%s;%d\n",programacionII[k].nombre,programacionII[k].apellidos,programacionII[k].celular,programacionII[k].edad);
+    }
+    fclose(archivo);
+}
 int main()
 {   char opcion;
     do{
@@ -204,6 +215,7 @@ int main()
             case '6': ordenar_nombre();  break;
             case '7': calcular_edad();  break;
             case '8': importar();  break;
+            case '9': exportar();  break;
         }
 
     }while(opcion!=27);
